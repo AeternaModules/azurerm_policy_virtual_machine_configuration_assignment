@@ -23,10 +23,10 @@ EOT
       assignment_type = optional(string)
       content_hash    = optional(string)
       content_uri     = optional(string)
-      parameter = optional(object({
+      parameter = optional(list(object({
         name  = string
         value = string
-      }))
+      })))
       version = optional(string)
     })
   }))

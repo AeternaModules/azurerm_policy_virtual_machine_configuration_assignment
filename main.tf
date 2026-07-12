@@ -10,7 +10,7 @@ resource "azurerm_policy_virtual_machine_configuration_assignment" "policy_virtu
     content_hash    = each.value.configuration.content_hash
     content_uri     = each.value.configuration.content_uri
     dynamic "parameter" {
-      for_each = each.value.configuration.parameter != null ? [each.value.configuration.parameter] : []
+      for_each = each.value.configuration.parameter != null ? each.value.configuration.parameter : []
       content {
         name  = parameter.value.name
         value = parameter.value.value
