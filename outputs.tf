@@ -1,3 +1,7 @@
+output "policy_virtual_machine_configuration_assignments_id" {
+  description = "Map of id values across all policy_virtual_machine_configuration_assignments, keyed the same as var.policy_virtual_machine_configuration_assignments"
+  value       = { for k, v in azurerm_policy_virtual_machine_configuration_assignment.policy_virtual_machine_configuration_assignments : k => v.id }
+}
 output "policy_virtual_machine_configuration_assignments_configuration" {
   description = "Map of configuration values across all policy_virtual_machine_configuration_assignments, keyed the same as var.policy_virtual_machine_configuration_assignments"
   value       = { for k, v in azurerm_policy_virtual_machine_configuration_assignment.policy_virtual_machine_configuration_assignments : k => v.configuration }
