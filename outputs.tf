@@ -1,21 +1,17 @@
-output "policy_virtual_machine_configuration_assignments" {
-  description = "All policy_virtual_machine_configuration_assignment resources"
-  value       = azurerm_policy_virtual_machine_configuration_assignment.policy_virtual_machine_configuration_assignments
-}
 output "policy_virtual_machine_configuration_assignments_configuration" {
-  description = "List of configuration values across all policy_virtual_machine_configuration_assignments"
-  value       = [for k, v in azurerm_policy_virtual_machine_configuration_assignment.policy_virtual_machine_configuration_assignments : v.configuration]
+  description = "Map of configuration values across all policy_virtual_machine_configuration_assignments, keyed the same as var.policy_virtual_machine_configuration_assignments"
+  value       = { for k, v in azurerm_policy_virtual_machine_configuration_assignment.policy_virtual_machine_configuration_assignments : k => v.configuration }
 }
 output "policy_virtual_machine_configuration_assignments_location" {
-  description = "List of location values across all policy_virtual_machine_configuration_assignments"
-  value       = [for k, v in azurerm_policy_virtual_machine_configuration_assignment.policy_virtual_machine_configuration_assignments : v.location]
+  description = "Map of location values across all policy_virtual_machine_configuration_assignments, keyed the same as var.policy_virtual_machine_configuration_assignments"
+  value       = { for k, v in azurerm_policy_virtual_machine_configuration_assignment.policy_virtual_machine_configuration_assignments : k => v.location }
 }
 output "policy_virtual_machine_configuration_assignments_name" {
-  description = "List of name values across all policy_virtual_machine_configuration_assignments"
-  value       = [for k, v in azurerm_policy_virtual_machine_configuration_assignment.policy_virtual_machine_configuration_assignments : v.name]
+  description = "Map of name values across all policy_virtual_machine_configuration_assignments, keyed the same as var.policy_virtual_machine_configuration_assignments"
+  value       = { for k, v in azurerm_policy_virtual_machine_configuration_assignment.policy_virtual_machine_configuration_assignments : k => v.name }
 }
 output "policy_virtual_machine_configuration_assignments_virtual_machine_id" {
-  description = "List of virtual_machine_id values across all policy_virtual_machine_configuration_assignments"
-  value       = [for k, v in azurerm_policy_virtual_machine_configuration_assignment.policy_virtual_machine_configuration_assignments : v.virtual_machine_id]
+  description = "Map of virtual_machine_id values across all policy_virtual_machine_configuration_assignments, keyed the same as var.policy_virtual_machine_configuration_assignments"
+  value       = { for k, v in azurerm_policy_virtual_machine_configuration_assignment.policy_virtual_machine_configuration_assignments : k => v.virtual_machine_id }
 }
 
