@@ -4,7 +4,7 @@ output "policy_virtual_machine_configuration_assignments_id" {
 }
 output "policy_virtual_machine_configuration_assignments_configuration" {
   description = "Map of configuration values across all policy_virtual_machine_configuration_assignments, keyed the same as var.policy_virtual_machine_configuration_assignments"
-  value       = { for k, v in azurerm_policy_virtual_machine_configuration_assignment.policy_virtual_machine_configuration_assignments : k => v.configuration if v.configuration != null && length(v.configuration) > 0 }
+  value       = { for k, v in azurerm_policy_virtual_machine_configuration_assignment.policy_virtual_machine_configuration_assignments : k => one(v.configuration) if v.configuration != null && length(v.configuration) > 0 }
 }
 output "policy_virtual_machine_configuration_assignments_location" {
   description = "Map of location values across all policy_virtual_machine_configuration_assignments, keyed the same as var.policy_virtual_machine_configuration_assignments"
